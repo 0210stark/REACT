@@ -1,14 +1,14 @@
 import React from 'react';
 
-const Loader = () => {
+const Loader = (props) => {
   return (
-    <div class='ui segment'>
-      <p></p>
-      <div class='ui active dimmer'>
-        <div class='ui loader'></div>
-      </div>
+    <div class='ui active dimmer'>
+      <div class='ui big text loader'>{props.text}</div>
     </div>
   );
 };
 
+Loader.defaultProps = {
+  text: 'Loading...',
+};
 export default Loader;
