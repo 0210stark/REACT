@@ -8,9 +8,6 @@ class App extends React.Component {
       lat: null,
       errorMessage: '',
     };
-  }
-
-  render() {
     window.navigator.geolocation.getCurrentPosition(
       (position) => {
         this.setState({ lat: position.coords.latitude });
@@ -19,14 +16,16 @@ class App extends React.Component {
         this.setState({ errorMessage: err.message });
       }
     );
+  }
 
-    return (
-      <div>
-        Latitude : {this.state.lat}
-        <br />
-        Error : {this.state.errorMessage}
-      </div>
-    );
+  render() {
+    if (this.state.errorMessage && !this.state.lat) {
+      return <div>{this.state.errorMessage}</div>;
+    }
+    if (this.state.lat && !this.state.errorMessage) {
+      return <div>{this.state.lat}</div>;
+    }
+    return <div>Loading...</div>;
   }
 }
 ReactDOM.render(<App />, document.getElementById('root'));
