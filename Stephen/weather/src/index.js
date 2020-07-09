@@ -25,7 +25,7 @@ class App extends React.Component {
     );
   }
 
-  render() {
+  renderContent() {
     if (this.state.errorMessage && !this.state.lat) {
       return <div>{this.state.errorMessage}</div>;
     }
@@ -33,6 +33,10 @@ class App extends React.Component {
       return <SeasonDisplay lat={this.state.lat} />;
     }
     return <Loader text='Please accept Location request!' />;
+  }
+
+  render() {
+    return <div className='border red'>{this.renderContent()}</div>;
   }
 }
 ReactDOM.render(<App />, document.getElementById('root'));
