@@ -4,6 +4,7 @@ export default class SearchBar extends Component {
   onInputChange(event) {
     console.log(event.target.value);
   }
+  state = { term: '' };
 
   render() {
     return (
