@@ -4,7 +4,7 @@ export default class SearchBar extends Component {
   onInputChange(event) {
     console.log(event.target.value);
   }
-  state = { term: '' };
+  state = { term: 'Vidit' };
 
   render() {
     return (
@@ -12,7 +12,11 @@ export default class SearchBar extends Component {
         <form className='ui form'>
           <div className='field'>
             <label htmlFor=''>Image Search</label>
-            <input type='text' onChange={this.onInputChange}></input>
+            <input
+              type='text'
+              value={this.state.term}
+              onChange={(e) => this.setState({ term: e.target.value })}
+            ></input>
           </div>
         </form>
       </div>
