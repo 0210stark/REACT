@@ -4,12 +4,16 @@ export default class SearchBar extends Component {
   onInputChange(event) {
     console.log(event.target.value);
   }
-  state = { term: 'Vidit' };
+  onSubmit = (event) => {
+    event.preventDefault();
+    console.log(this.state.term);
+  };
+  state = { term: 'Cars' };
 
   render() {
     return (
       <div className='ui segment'>
-        <form className='ui form'>
+        <form onSubmit={this.onSubmit} className='ui form'>
           <div className='field'>
             <label htmlFor=''>Image Search</label>
             <input
