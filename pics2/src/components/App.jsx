@@ -4,7 +4,7 @@ class App extends Component {
   state = {};
   render() {
     return (
-      <div>
+      <div className='ui container' style={{ marginTop: '10px' }}>
         <SearchBar />
       </div>
     );
