@@ -8,6 +8,7 @@ class SearchBar extends Component {
           className='ui form'
           onSubmit={(e) => {
             e.preventDefault();
+            this.props.term(this.state.term);
           }}
         >
           <div className='field'>
