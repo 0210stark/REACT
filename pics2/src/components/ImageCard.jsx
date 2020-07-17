@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const ImageCard = () => {
-  return <div></div>;
-};
+class ImageCard extends Component {
+  state = {};
+  render() {
+    return (
+      <div>
+        <img
+          alt={this.props.image.description}
+          src={this.props.image.urls.regular}
+        />
+      </div>
+    );
+  }
+}
 
 export default ImageCard;
