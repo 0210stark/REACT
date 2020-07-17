@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import SearchBar from './SearchBar';
+import unsplash from '../api/unsplash';
+import ImageList from './ImageList';
 class App extends Component {
   getTerm = async (term) => {
-    const response = await axios.get('https://api.unsplash.com/search/photos', {
+    const response = await unsplash.get('/search/photos', {
       params: {
         query: term,
-      },
-      headers: {
-        Authorization:
-          'Client-ID c67e1fe9281d943f4ed47c6f5068097bb79317daea4cee5ffdc705d0e620d416',
       },
     });
     this.setState({ images: response.data.results });
@@ -21,6 +18,7 @@ class App extends Component {
       <div className='ui container' style={{ marginTop: '10px' }}>
         <SearchBar term={this.getTerm} />
         Found : {this.state.images.length}
+        <ImageList images={this.state.images} />
       </div>
     );
   }
