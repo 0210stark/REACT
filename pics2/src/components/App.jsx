@@ -3,7 +3,11 @@ import SearchBar from './SearchBar';
 class App extends Component {
   state = {};
   render() {
-    return <div>Hey from App</div>;
+    return (
+      <div>
+        <SearchBar />
+      </div>
+    );
   }
 }
 

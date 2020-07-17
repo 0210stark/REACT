@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 class SearchBar extends Component {
-  state = {  }
-  render() { 
-    return (  );
+  state = { term: '' };
+  render() {
+    return (
+      <div>
+        <form>
+          <input type='text' placeholder='Search' />
+        </form>
+      </div>
+    );
   }
 }
- 
+
 export default SearchBar;
