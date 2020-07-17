@@ -4,7 +4,12 @@ class SearchBar extends Component {
   render() {
     return (
       <div className='ui segment'>
-        <form className='ui form'>
+        <form
+          className='ui form'
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
           <div className='field'>
             <label htmlFor=''>Image Search</label>
             <input

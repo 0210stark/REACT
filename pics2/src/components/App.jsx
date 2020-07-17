@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 class App extends Component {
-  state = {};
+  getTerm = (term) => {};
+  state = { images: [] };
   render() {
     return (
       <div className='ui container' style={{ marginTop: '10px' }}>
-        <SearchBar />
+        <SearchBar term={this.getTerm()} />
       </div>
     );
   }
