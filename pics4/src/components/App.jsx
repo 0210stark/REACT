@@ -8,6 +8,7 @@ class App extends Component {
         query: term,
       },
     });
+    console.log(term);
 
     this.setState({ images: response.data.results });
   };
