@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 
 class SearchBar extends Component {
+  onFormSubmit = (event) => {
+    event.preventDefault();
+    // TODO Call back from the api
+  };
   state = { term: '' };
   render() {
     return (
       <div className='searchbar ui segment'>
-        <div className='ui form'>
+        <form className='ui form' onSubmit={this.onFormSubmit}>
           <div className='field'>
             <label>Video Search</label>
             <input
@@ -16,7 +20,7 @@ class SearchBar extends Component {
               }}
             />
           </div>
-        </div>
+        </form>
       </div>
     );
   }
