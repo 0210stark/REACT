@@ -4,6 +4,7 @@ class SearchBar extends Component {
   onFormSubmit = (event) => {
     event.preventDefault();
     // TODO Call back from the api
+    this.props.getTerm(this.state.term);
   };
   state = { term: '' };
   render() {
