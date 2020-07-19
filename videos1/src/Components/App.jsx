@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import VideoList from './VideoList';
 import youtube from '../api/youtube';
+import VideoDetail from './VideoDetail';
 
 const KEY = 'AIzaSyDl_tkYkWptJsX5oFCHmUGSz-7J19qVHUQ';
 
@@ -22,13 +23,14 @@ class App extends Component {
   };
 
   onVideoSelect = (video) => {
-    console.log('From the App ', video);
+    this.setState({ selectedVideo: video });
   };
 
   render() {
     return (
       <div className='ui container' style={{ marginTop: '20px' }}>
         <SearchBar getTerm={this.onTermSubmit} />
+        <VideoDetail video={this.state.selectedVideo} />
         <VideoList
           onVideoSelect={this.onVideoSelect}
           videos={this.state.videos}
