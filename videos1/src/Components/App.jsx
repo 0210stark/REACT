@@ -6,7 +6,7 @@ import youtube from '../api/youtube';
 const KEY = 'AIzaSyDl_tkYkWptJsX5oFCHmUGSz-7J19qVHUQ';
 
 class App extends Component {
-  state = { videos: [] };
+  state = { videos: [], selectedVideo: null };
 
   onTermSubmit = async (term) => {
     const response = await youtube.get('/search', {
@@ -21,11 +21,18 @@ class App extends Component {
     this.setState({ videos: response.data.items });
   };
 
+  onVideoSelect = (video) => {
+    console.log('From the App ', video);
+  };
+
   render() {
     return (
       <div className='ui container' style={{ marginTop: '20px' }}>
         <SearchBar getTerm={this.onTermSubmit} />
-        <VideoList videos={this.state.videos} />
+        <VideoList
+          onVideoSelect={this.onVideoSelect}
+          videos={this.state.videos}
+        />
       </div>
     );
   }
