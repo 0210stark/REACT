@@ -24,9 +24,11 @@ class App extends Component {
       selectedVideo: response.data.items[0],
     });
   };
+
   componentDidMount() {
     this.onTermSubmit('spacex');
   }
+
   onVideoSelect = (video) => {
     this.setState({ selectedVideo: video });
   };
