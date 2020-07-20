@@ -24,6 +24,10 @@ class App extends Component {
     });
   };
 
+  componentDidMount() {
+    this.getTermAndSubmit('spacex');
+  }
+
   onVideoSelect = (video) => {
     this.setState({ selectedVideo: video });
     console.log(video);
@@ -32,7 +36,7 @@ class App extends Component {
   render() {
     return (
       <div className='ui container' style={{ marginTop: '20px' }}>
-        <SearchBar getTerm={this.onTermSubmit} />
+        <SearchBar getTerm={this.getTermAndSubmit} />
         <div className='ui grid'>
           <div className='ui row'>
             <div className='eleven wide column'>
