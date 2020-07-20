@@ -5,8 +5,10 @@ class SearchBar extends Component {
     return (
       <div className='ui segment'>
         <form
+          className='ui form'
           onSubmit={(e) => {
             e.preventDefault();
+            this.props.getTerm(this.state.term);
           }}
         >
           <div className='ui field'>
