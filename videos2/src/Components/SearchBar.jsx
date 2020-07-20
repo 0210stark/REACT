@@ -20,6 +20,7 @@ class SearchBar extends Component {
               <label>Video Search</label>
               <input
                 type='text'
+                placeholder={this.props.search}
                 value={this.state.term}
                 onChange={(e) => {
                   this.setState({ term: e.target.value });
