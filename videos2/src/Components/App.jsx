@@ -21,11 +21,18 @@ class App extends Component {
     this.setState({ videos: response.data.items });
   };
 
+  onVideoSelect = (video) => {
+    this.setState({ selectedVideo: video });
+  };
+
   render() {
     return (
       <div className='ui container' style={{ marginTop: '20px' }}>
         <SearchBar getTerm={this.getTermAndSearches} />
-        <VideoList videos={this.state.videos} />
+        <VideoList
+          videos={this.state.videos}
+          onVideoSelect={this.onVideoSelect}
+        />
         <VideoDetail />
       </div>
     );
