@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import VideoList from './VideoList';
+import VideoDetail from './VideoDetail';
 import youtube from '../api/youtube';
 
 const KEY = 'AIzaSyDl_tkYkWptJsX5oFCHmUGSz-7J19qVHUQ';
 class App extends Component {
-  state = { videos: [], selectedVideo: '' };
+  state = { videos: [], selectedVideo: null };
 
   getTermAndSearches = async (term) => {
     const response = await youtube.get('/search', {
@@ -21,7 +22,6 @@ class App extends Component {
   };
 
   onVideoSelect = (video) => {
-    console.log('From App', video);
     this.setState({ selectedVideo: video });
   };
 
@@ -29,6 +29,7 @@ class App extends Component {
     return (
       <div className='ui container' style={{ marginTop: '20px' }}>
         <SearchBar getTerm={this.getTermAndSearches} />
+        <VideoDetail video={this.state.selectedVideo} />
         <VideoList
           videos={this.state.videos}
           onVideoSelect={this.onVideoSelect}
