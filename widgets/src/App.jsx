@@ -20,8 +20,8 @@ const items = [
 const App = () => {
   return (
     <div>
-      {/* <Search /> */}
-      <App items={items} />
+      <Search />
+      {/* <Accordion items={items} /> */}
     </div>
   );
 };
