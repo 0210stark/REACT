@@ -20,7 +20,8 @@ const items = [
 const App = () => {
   return (
     <div>
-      <Search />
+      {/* <Search /> */}
+      <App items={items} />
     </div>
   );
 };
